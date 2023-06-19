@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>음식 추천 결과</title>
+    <style>
+        body {
+            font-family: 'SeoulNamsan', sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            width: 100%;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>음식 추천 결과</h1>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">음식 이름</th>
+                <th scope="col">제공량</th>
+                <th scope="col">열량(kcal)</th>
+                <th scope="col">탄수화물(g)</th>
+                <th scope="col">단백질(g)</th>
+                <th scope="col">지방(g)</th>
+                <th scope="col">당류(g)</th>
+                <th scope="col">나트륨(mg)</th>
+                <th scope="col">콜레스테롤(mg)</th>
+                <th scope="col">포화지방산(g)</th>
+                <th scope="col">트랜스지방(g)</th>
+                <th scope="col">음식 그룹</th>
+                <th scope="col">제조사</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for _, row in result.iterrows() %}
+            <tr>
+                <td>{{ row['Name'] }}</td>
+                <td>{{ row['Serving_size'] }}</td>
+                <td>{{ row['Calories'] }}</td>
+                <td>{{ row['Total_carbohydrate'] }}</td>
+                <td>{{ row['Protein'] }}</td>
+                <td>{{ row['Total_fat'] }}</td>
+                <td>{{ row['Sugars'] }}</td>
+                <td>{{ row['Sodium'] }}</td>
+                <td>{{ row['Cholesterol'] }}</td>
+                <td>{{ row['Saturated_fat'] }}</td>
+                <td>{{ row['Trans_fat'] }}</td>
+                <td>{{ row['Group_name'] }}</td>
+                <td>{{ row['Maker_name'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
